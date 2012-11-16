@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Super Cookies - Basic Example</title>
+<script src="../js/swfobject/swfobject.js" type="text/javascript"></script>
+<script>
+//for setting multiple cookies at once you need to enable this setup 
+var superCookieSetup = {extended:true, swfURL:"../swf/supercookie.swf", expressInstaller:"../js/swfobject/expressInstall.swf"};
+</script>
+<script src="../js/superCookie-min.js" type="text/javascript"></script>
+<style type="text/css">
+body{font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:14px; background:#fff} 
+.small {
+    color: #fff;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 12px;
+    position: relative;
+    top: -10px;
+}
+h1, h2, h3{margin:0; padding:0}
+.topmenu{}
+.topmenu td{background:#333; color:#FFFFFF; text-align:center}
+.topmenu td a, .topmenu td a:visited{color:#fff;}
+.topmenu td.active{background:#090; color:#333}
+.topmenu td.active a, .topmenu td.active a:visited{color:#fff; text-decoration:none}
+.tblWhite{background:#FFFFFF}
+pre{overflow-x:auto; overflow-y:hidden; background:#707070; color:#fff; margin:0; padding:20px; max-width:750px}
+.hide, .hidden{display:none}
+code.blue{color:#66CCCC}
+</style>
+
+</head>
+<body onload="getCookie()">
+
+<table width="100%" border="0" cellspacing="1" cellpadding="5" class="topmenu help">
+  <tr>
+    <td colspan="4" align="center" class="title"><h1>Javascript Super Cookie<span id="ver"></span> <a title="Download" href="http://www.marghoobsuleman.com/cross-domain-cookies" class="small">Download</a></h1></td>
+  </tr>
+  <tr>
+    <td><a href="index.html">Basic</a></td>
+    <td class="active"><a href="multiple-items.html">Save Objects/Data Types</a></td>
+    <td><a href="cross-domain.html">Cross Domain</a></td>
+    <td align="left"><a href="help.html">Documentation</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<script type="text/javascript">
+function setCookie() {
+	var obj = {};
+	for(var i=0;i<elements.length;i++) {
+		obj[elements[i]] = document.getElementById(elements[i]).value;
+	}
+	//console.log(obj);
+	superCookie.setItem("multipleItems", obj);
+	//just for feedback
+	document.getElementById("status").innerHTML = "<span style='color:green'>Cookie has been set. Refresh to see.</span>"
+}
+function getCookie() {
+	if(superCookie.isReady) {
+		var val = superCookie.getItem("multipleItems");	
+		updateField(val);
+	} else {
+		superCookie.onReady(function() {
+			var val = superCookie.getItem("multipleItems");
+			updateField(val);
+		})		
+	}
+	function updateField(val) {
+		for(var i=0;i<elements.length;i++) {
+			document.getElementById(elements[i]).value = val[elements[i]];
+		}	
+	}
+}
+var elements = ["m_name","m_city","m_country"];
+
+
+function testCookie() {
+	for(var i=0;i<100000;i++) {
+		superCookie.setItem("Item"+i, "The quick brown fox jumps over the little lazy dog.");
+	}
+}
+
+
+</script>
+<fieldset>
+  <legend><strong>Set Multiple Values as an Object</strong></legend><table width="100%" border="0" cellspacing="1" cellpadding="5">
+  <tr>
+    <td width="9%">Name:</td>
+    <td width="91%"><input type="text" name="m_name" id="m_name" value="" /></td>
+  </tr>
+  <tr>
+    <td>City: </td>
+    <td><input type="text" name="m_city" id="m_city" value="" /></td>
+  </tr>
+  <tr>
+    <td>Country: </td>
+    <td><input type="text" name="m_country" id="m_country" value="" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="button" onclick="setCookie()" value="Set Super Cookie" /></td>
+  </tr>
+  </table>
+<div id="status" style="padding:10px 0;"> Click on button to set the cookie. </div>
+<br />
+<br />
+</fieldset>
+
+<!-- supercookie div -->
+<div id="msCookieDiv"></div>
+<!-- supercookie div -->
+<pre>
+<code>
+//in header
+&lt;script src="../js/swfobject/swfobject.js" type="text/javascript">&lt;/script>
+&lt;script>
+//for setting object or other data types we need to use "extended:true" in setup
+var superCookieSetup = {extended:true, swfURL:"../swf/supercookie.swf", expressInstaller:"../js/swfobject/expressInstall.swf"};
+&lt;/script>
+&lt;script src="../js/superCookie-min.js" type="text/javascript">&lt;/script>
+//and this div any where in body tag
+&lt;div id="msCookieDiv">&lt;/div>
+</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Super Cookies - Basic Example</title>
+<style type="text/css">
+body{font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:14px; background:#fff} 
+.small {
+    color: #fff;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 12px;
+    position: relative;
+    top: -10px;
+}
+h1, h2, h3{margin:0; padding:0}
+.topmenu{}
+.topmenu td{background:#333; color:#FFFFFF; text-align:center}
+.topmenu td a, .topmenu td a:visited{color:#fff;}
+.topmenu td.active{background:#090; color:#333}
+.topmenu td.active a, .topmenu td.active a:visited{color:#fff; text-decoration:none}
+.tblWhite{background:#FFFFFF}
+pre{overflow-x:auto; overflow-y:hidden; background:#707070; color:#fff; margin:0; padding:20px; max-width:750px}
+.hide, .hidden{display:none}
+code.blue{color:#66CCCC}
+code.blue1 {color:#3300FF}
+table.help {background:#fff; color:#000;}
+td.title1{color:#fff; background:#006699}
+td.title{color:#fff; background:#666}
+table.help td{border:1px solid #c3c3c3;}
+</style>
+
+</head>
+<body>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="5" class="topmenu help">
+  <tr>
+    <td colspan="4" align="center" class="title"><h1>Javascript Super Cookie<span id="ver"></span> <a title="Download" href="http://www.marghoobsuleman.com/cross-domain-cookies" class="small">Download</a></h1></td>
+  </tr>
+  <tr>
+    <td><a href="index.html">Basic</a></td>
+    <td><a href="multiple-items.html">Save Objects/Data Types</a></td>
+    <td><a href="cross-domain.html">Cross Domain</a></td>
+    <td align="left" class="active"><a href="help.html">Documentation</a></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="1" cellpadding="5" class="help">
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="18%" class="title1"><strong>Public Properties</strong></td>
+    <td width="8%">&nbsp;</td>
+    <td width="74%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="title1">Name</td>
+    <td class="title1">Type</td>
+    <td class="title1">Description</td>
+  </tr>
+  <tr>
+    <td>isReady</td>
+    <td>boolean</td>
+    <td>Returns if superCookie is ready to use.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>var isReady = superCookie.isReady;<br />alert(isReady);</code></pre></td>
+  </tr> 
+  <tr>
+    <td>remainingSpace</td>
+    <td>number</td>
+    <td>Return the remaining storage space in bytes, for the storage object -<em> not implemented in this version</em></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="title1"><strong>Public Methods</strong></td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>clear</td>
+    <td>&nbsp;</td>
+    <td>Remove all the key/value pairs from superCookie.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>superCookie.clear();</code></pre>
+    </td>
+  </tr>
+    <tr>
+    <td>getItem</td>
+    <td>&nbsp;</td>
+    <td>Get the value of item passed as key to the method.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>var val = superCookie.getItem("library");
+alert(val) //"Super Cookie"</code></pre></td>
+  </tr>  
+  <tr>
+    <td>key</td>
+    <td>&nbsp;</td>
+    <td>Retrieves the key at specified index.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>var key = superCookie.key(0);
+alert(key);//library</code></pre></td>
+  </tr>
+ <tr>
+    <td>length</td>
+    <td>number</td>
+    <td>Returns the length of number of items.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>var count = superCookie.length();<br />alert(count);</code></pre></td>
+  </tr>
+  <tr>
+    <td>onError</td>
+    <td>&nbsp;</td>
+    <td>Fires if there is an error.</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+     <pre><code>superCookie.onError(function(msg) {
+     alert(msg);
+     })</code></pre>
+    </td>
+  </tr>
+  <tr>
+    <td>onReady</td>
+    <td>&nbsp;</td>
+    <td>Fires when superCookie is ready to use.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>superCookie.onReady(function() {
+     superCookie.setItem("library", "Super Cookie");
+     })</code></pre></td>
+  </tr>
+  <tr>
+    <td>removeItem</td>
+    <td>&nbsp;</td>
+    <td>Remove the key/value pair from superCookie.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>var key = superCookie.removeItem(&quot;library&quot;);</code></pre></td>
+  </tr>
+  <tr>
+    <td>setItem</td>
+    <td>&nbsp;</td>
+    <td>Sets a key/value pair.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><pre><code>superCookie.setItem(&quot;library&quot;, &quot;Super Cookie&quot;);</code></pre></td>
+  </tr>
+</table>
+<!-- supercookie div -->
+<div id="msCookieDiv"></div>
+<!-- supercookie div -->
+</body>
+</html>
