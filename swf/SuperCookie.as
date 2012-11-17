@@ -14,6 +14,10 @@
 	import flash.events.HTTPStatusEvent;
 	import flash.utils.setTimeout;
 	import flash.utils.clearTimeout;
+	import flash.ui.ContextMenu;
+	import flash.ui.ContextMenuItem;
+	import flash.events.ContextMenuEvent;
+	import flash.net.navigateToURL;
 
 	public class SuperCookie extends MovieClip {
 		private var _length:Number = 0;
@@ -43,7 +47,8 @@
 				} else {
 					trace("ExternalInterface.available is false");					
 					status_txt.text = "ExternalInterface is not available...";
-				}			
+				}
+				this.addCopyright();
 			}			
 		}	
 		private function init() {
@@ -211,6 +216,20 @@
             }            
             _cookieObj.removeEventListener(NetStatusEvent.NET_STATUS, onFlushStatus);
         }
+		/********************** copyright ******************/
+		private function addCopyright() {
+			var cMenu:ContextMenu = new ContextMenu();
+			var powered:ContextMenuItem = new ContextMenuItem("Powered by marghoobsuleman.com");			
+			var author:ContextMenuItem = new ContextMenuItem("Author: Marghoob Suleman");
+			author.enabled = false;						
+			cMenu.customItems.push(powered,author);			
+			powered.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, function(evt:ContextMenuEvent) {
+								   navigateToURL(new URLRequest("http://www.marghoobsuleman.com"));
+								   });			
+			cMenu.hideBuiltInItems();
+			this.contextMenu = cMenu;			
+			
+		}
 
 	}	
 }
